@@ -8,7 +8,7 @@ class UsersRoutes {
     constructor(){
         
         this.router.get('/:id', usersController.user);
-        this.router.post('/:id', usersController.create);
+        this.router.post('/', usersController.create);
         this.router.put('/:id', usersController.update);
         this.router.delete('/:id', usersController.delete);
 
