@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { bookController} from '../controllers/book.controller';
+import { bookController } from '../controllers/book.controller';
 
 class BookRoutes {
 
@@ -9,6 +9,14 @@ class BookRoutes {
 
         this.router.put('/:id', bookController.update);
         this.router.delete('/:id', bookController.delete);
+        this.router.get('/:id', 
+        bookController.book
+        );
+        this.router.post('/',
+        bookController.create
+        );
+      
+
     }
 }
 
