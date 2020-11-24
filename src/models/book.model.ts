@@ -25,7 +25,7 @@ Book.init({
     },
     authorId: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     isbn: {
         type: DataTypes.STRING,

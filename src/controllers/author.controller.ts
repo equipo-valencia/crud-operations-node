@@ -37,16 +37,25 @@ class AuthorController {
         }   
     }
 
-    public async delete (req: Request, res: Response) {
+    public async deleteAuthorId (req: Request, res: Response) {
 
         try{
-            const result = await Author.destroy({
+            const deleteBook = await Book.findOne({
                 where:{
-                    id: req.params.id
-                }
-            })
+                    id: req.body.id
+                },
+            });
+            if(deleteBook){
+                const result = await Book.update(
+                    {
+                    authorId: null
+                    },
+                {where: {id: req.body.id,
+                        authorId: req.params.id}})
+            }
+           res.sendStatus(200)
         }catch (error) {
-
+            res.send(error)
         }
     }
 

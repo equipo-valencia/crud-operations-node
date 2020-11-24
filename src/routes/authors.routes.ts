@@ -12,7 +12,7 @@ class AuthorRoutes {
         );
 
         this.router.get('/:id/books', authorsController.authorBooks)
-        this.router.delete('/:id/books', authorsController.delete);
+        this.router.put('/:id/books', authorsController.deleteAuthorId);
        
         this.router.post('/:id/books',
         authorsController.create
