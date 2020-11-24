@@ -55,7 +55,7 @@ class UsersController {
 
             const user = await User.update(
                {
-                   name: req.body.name,
+                   title: req.body.title,
                    familyName: req.body.familyName
                },
                 {

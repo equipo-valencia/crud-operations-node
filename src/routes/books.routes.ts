@@ -5,7 +5,10 @@ class BookRoutes {
 
     public router: Router = Router();
 
-    constructor() {
+    constructor(){
+
+        this.router.put('/:id', bookController.update);
+        this.router.delete('/:id', bookController.delete);
         this.router.get('/:id', 
         bookController.book
         );
