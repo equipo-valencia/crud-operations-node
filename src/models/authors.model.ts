@@ -1,37 +1,26 @@
 import { Model, Sequelize, DataTypes } from 'sequelize';
 import { database } from '../database';
-import { Author } from './authors.model';
 
-export class Book extends Model {
+export class Author extends Model {
     public id!: number;
-    public title!: string;
-    public authorId!: string;
-    public isbn!: string;
-    public genres!: string;
+    public name!: string;
+    public lastName!: string;
     public createdAt!: Date;
     public updatedAt!: Date;
 }
 
-Book.init({
+Author.init({
     id: {
         type: DataTypes.INTEGER.UNSIGNED,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
     },
-    title: {
+    name: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    authorId: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    isbn: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    genres: {
+    lastName: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -44,9 +33,6 @@ Book.init({
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
     }
 },{
-    tableName: 'books',
+    tableName: 'authors',
     sequelize: database // Es donde decimos como conectanros a la base de datos
 })
-
-Book.belongsTo(Author);
-Author.hasMany(Book);
