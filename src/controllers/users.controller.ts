@@ -20,6 +20,20 @@ class UsersController {
         }   
     }
 
+    public async allUsers (req: Request, res: Response) {        
+    
+        try{
+            // SELECT * FROM USERS WHERE name = 'Antonio' AND id:3 AND familyName = 'Lozano' OR familyName='Belén'
+            const users = await User.findAll({
+                raw: true});
+
+            res.send(users);
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(500);
+        }   
+    }
+
     public async create (req: Request, res: Response) {
         
         try{
