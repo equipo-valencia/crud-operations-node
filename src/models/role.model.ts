@@ -1,42 +1,24 @@
 import { Model, Sequelize, DataTypes } from 'sequelize';
 import { database } from '../database';
+ 
 
-export class User extends Model {
+export class Role extends Model {
     public id!: number;
-    public name!: string;
-    public familyName!: string;
-    public email!: string;
-    public password!: number;
-    public  roleId!: number;
+    public role!: string;
     public createdAt!: Date;
     public updatedAt!: Date;
 }
 
-User.init({
+Role.init({
     id: {
         type: DataTypes.INTEGER.UNSIGNED,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
     },
-    name: {
+    role: {
         type: DataTypes.STRING,
         allowNull: false
-    },
-    familyName: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    password: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    roleId: {
-        type: DataTypes.INTEGER
     },
     createdAt :{
         type: DataTypes.DATE,
@@ -47,6 +29,8 @@ User.init({
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
     }
 },{
-    tableName: 'users',
+    tableName: 'role',
     sequelize: database // Es donde decimos como conectanros a la base de datos
 })
+
+ 
