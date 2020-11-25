@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { authorsController } from '../controllers/author.controller';
-import { checkJwt } from '../middlewares/check.Jwt';
 
 
 class AuthorRoutes {
@@ -9,7 +8,7 @@ class AuthorRoutes {
 
     constructor(){
 
-        this.router.get('/',[checkJwt], 
+        this.router.get('/', 
         authorsController.author
         );
 

@@ -5,6 +5,8 @@ export class User extends Model {
     public id!: number;
     public name!: string;
     public familyName!: string;
+    public email!: string;
+    public password!: number;
     public createdAt!: Date;
     public updatedAt!: Date;
 }
@@ -22,6 +24,14 @@ User.init({
     },
     familyName: {
         type: DataTypes.STRING,
+        allowNull: false
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    password: {
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     createdAt :{

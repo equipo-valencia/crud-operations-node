@@ -84,9 +84,6 @@ class UsersController {
             res.json(error);
         }
     }
-
-
-
 }
 
 export const usersController = new UsersController();
