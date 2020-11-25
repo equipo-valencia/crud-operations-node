@@ -2,6 +2,7 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import { authorRoutes } from './routes/authors.routes';
 import { bookRoutes } from './routes/books.routes';
+import { saleRoutes } from './routes/sale.routes';
 import { userRoutes } from './routes/users.routes';
 
 // Instance the express framework
@@ -19,6 +20,8 @@ app.use('/users', userRoutes.router);
 app.use('/books', bookRoutes.router);
 
 app.use('/authors', authorRoutes.router);
+
+app.use('/sales', saleRoutes.router);
 
 
 // Start the server, using the port defined
