@@ -7,7 +7,7 @@ class AuthRoutes {
 
     constructor(){
         
-        this.router.post('/login', 
+        this.router.post('/auth', 
         authController.auth
         );
     }

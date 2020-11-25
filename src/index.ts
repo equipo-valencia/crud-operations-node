@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser';
 import express from 'express';
+import { authRoutes } from './routes/auth.routes';
 import { authorRoutes } from './routes/authors.routes';
 import { bookRoutes } from './routes/books.routes';
 import { saleRoutes } from './routes/sale.routes';
@@ -22,6 +23,8 @@ app.use('/books', bookRoutes.router);
 app.use('/authors', authorRoutes.router);
 
 app.use('/sales', saleRoutes.router);
+
+app.use('/login', authRoutes.router);
 
 
 // Start the server, using the port defined

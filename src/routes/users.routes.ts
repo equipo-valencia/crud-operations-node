@@ -8,12 +8,11 @@ class UsersRoutes {
 
     constructor(){
         
-        this.router.get('/:id', [checkJwt], usersController.user);
+        this.router.get('/:id', usersController.user);
         this.router.post('/', usersController.create);
         this.router.put('/:id', usersController.update);
         this.router.delete('/:id', usersController.delete);
 
-      
     }
 }
 

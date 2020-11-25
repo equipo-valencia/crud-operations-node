@@ -11,7 +11,7 @@ class AuthController {
         
         const token = jwt.sign(
             {
-               email: req.body.email.email
+               email: req.body.email
             },
             data.jwtSecret,
             {
@@ -19,7 +19,7 @@ class AuthController {
             }
         )
     
-      res.sendStatus(200);
+      res.send(token);
     }
 }
 
