@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { authorsController } from '../controllers/author.controller';
 
+
 class AuthorRoutes {
 
     public router: Router = Router();
