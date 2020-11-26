@@ -13,8 +13,10 @@ class AuthController {
             const findUser = await User.findOne({
                 where:{
                     email: req.body.email,
-                    password: req.body.password
+                    password: req.body.password,
+                    RoleId: 1
                 }
+               
             })
             if(findUser){
                 const token = jwt.sign(
