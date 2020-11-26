@@ -7,6 +7,7 @@ import { saleRoutes } from './routes/sale.routes';
 import { userRoutes } from './routes/users.routes';
 import socketio from 'socket.io';
 import * as path from 'path';
+import { any } from 'sequelize/types/lib/operators';
 // Instance the express framework
 const app = express();
 
@@ -37,8 +38,15 @@ const server = app.listen(app.get('port'), () => {
 let io = new socketio.Server(server);
 io.on('connection', (socket: any)=> {
     console.log('User connected');
+
+    socket.on('message',(message:any)=>{
+        io.emit('message',message );
+        console.log(message);
+    })
     
 });
+
+
 
 app.get('/', (req: any, res: any) => {
     res.sendFile(path.resolve('./client/index.html'));
