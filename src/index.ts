@@ -5,7 +5,8 @@ import { authorRoutes } from './routes/authors.routes';
 import { bookRoutes } from './routes/books.routes';
 import { saleRoutes } from './routes/sale.routes';
 import { userRoutes } from './routes/users.routes';
-
+import socketio from 'socket.io';
+import * as path from 'path';
 // Instance the express framework
 const app = express();
 
@@ -28,9 +29,17 @@ app.use('/login', authRoutes.router);
 
 
 // Start the server, using the port defined
-app.listen(app.get('port'), () => {
+const server = app.listen(app.get('port'), () => {
 
     console.log(`Ther server is running on port ${app.get('port')}`); 
+});
+
+let io = new socketio.Server(server);
+io.on('connection', (socket: any)=> {
+    console.log('User connected');
     
 });
 
+app.get('/', (req: any, res: any) => {
+    res.sendFile(path.resolve('./client/index.html'));
+});
