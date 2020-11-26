@@ -9,21 +9,33 @@
 <body>
     <div class="container">
         <h2>Chat</h2>
-        
-        <button class="btn" onClick='sendMsg()'>Send msg</button>
+        <div class="chat_area">
+            <ul class="list-group-item lista">
+
+            </ul>
+        </div>
+        <input id="chat" type="text">
+        <button class="btn btn-success" onClick='sendMsg()'>Send msg</button>
 
     </div> 
-
-    
-    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.1/socket.io.js"></script>
     <script>
         const socket = io('http://localhost:3000');
+        const lista = document.querySelector('.lista');
+
+        socket.on('message', msg =>{
+            console.log(msg)
+            let contenido2 = msg
+            lista.innerHTML += `<li>${msg}</li>`
+        });
 
         function sendMsg() {
-            socket.emit('message', 'Hello World!')
+            const msg = document.getElementById('chat').value;
+            socket.emit('message',msg);
+         
         }
+
     </script>
 
      
