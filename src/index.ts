@@ -43,9 +43,7 @@ io.on('connection', (socket: any)=> {
         io.emit('message',message );
         console.log(message);
     })
-    
 });
-
 
 
 app.get('/', (req: any, res: any) => {

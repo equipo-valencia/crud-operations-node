@@ -14,7 +14,7 @@ class AuthController {
                 where:{
                     email: req.body.email,
                     password: req.body.password,
-                    RoleId: 1
+                 //   RoleId: 1
                 }
                
             })
