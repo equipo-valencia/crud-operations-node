@@ -9,8 +9,8 @@ class UsersRoutes {
 
     constructor(){
         
-        this.router.get('/',[checkJwt('ADMIN') ], usersController.allUsers);
-        this.router.get('/:id',[checkJwt('WEB CLIENT')], usersController.user);
+        this.router.get('/',[checkJwt(1) ], usersController.allUsers);
+        this.router.get('/:id',[checkJwt(2)], usersController.user);
         this.router.post('/', usersController.create);
         this.router.put('/:id', usersController.update);
         this.router.delete('/:id', usersController.delete);

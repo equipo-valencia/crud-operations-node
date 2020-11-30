@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { rename } from 'fs';
 import jwt from 'jsonwebtoken';
 import config from '../config/config.json';
+import { Role } from '../models/role.model';
 import { User } from '../models/user.model';
 
  
@@ -14,7 +15,6 @@ class AuthController {
                 where:{
                     email: req.body.email,
                     password: req.body.password,
-                 //   RoleId: 1
                 }
                
             })
@@ -22,7 +22,8 @@ class AuthController {
                 const token = jwt.sign(
                     {
                     email: req.body.email,
-                    password: req.body.password
+                    password: req.body.password,
+                
                     },
                     config.jwtSecret,
                     {

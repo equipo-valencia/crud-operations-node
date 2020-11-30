@@ -1,5 +1,6 @@
 import { Model, Sequelize, DataTypes } from 'sequelize';
 import { database } from '../database';
+import { User } from './user.model';
  
 
 export class Role extends Model {
@@ -34,3 +35,5 @@ Role.init({
 })
 
  
+Role.belongsTo(User);
+User.hasMany(Role);

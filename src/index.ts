@@ -12,7 +12,7 @@ import { any } from 'sequelize/types/lib/operators';
 const app = express();
 
 // Setting the port of aplication server
-app.set('port', 3000);
+app.set('port', 5000);
 
 // Middlewares
 app.use(express.json()); // Poder interpretar json en las peticiones

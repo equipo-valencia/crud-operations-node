@@ -1,5 +1,6 @@
 import { Model, Sequelize, DataTypes } from 'sequelize';
 import { database } from '../database';
+import { Role } from './role.model';
 
 export class User extends Model {
     public id!: number;
@@ -50,3 +51,4 @@ User.init({
     tableName: 'users',
     sequelize: database // Es donde decimos como conectanros a la base de datos
 })
+
